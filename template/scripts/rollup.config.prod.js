@@ -26,32 +26,6 @@ export default [
   {
     ...baseConfig,
     output: [
-      // umd development version with sourcemap
-      // {
-      //   file: `dist/${name}.js`,
-      //   format: 'umd',
-      //   name: libName,
-      //   banner,
-      // },
-      // cjs and esm version
-      // {
-      //   file: `dist/${name}.cjs.js`,
-      //   format: 'cjs',
-      //   banner,
-      // },
-      // // cjs and esm version
-      // {
-      //   file: `dist/${name}.esm.js`,
-      //   format: 'es',
-      //   banner,
-      // },
-    ],
-    plugins: [...baseConfig.plugins, filesize()]
-  },
-  // .min.js
-  {
-    ...baseConfig,
-    output: [
       // umd with compress version
       {
         file: `dist/${name}.min.js`,

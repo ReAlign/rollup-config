@@ -10,20 +10,20 @@ export default {
   ...baseConfig,
   output: [
     {
-      file: `dist/${name}.js`,
+      file: `dist/${name}.min.js`,
       format: 'umd',
       name: libName,
       sourcemap: true,
     },
     {
-      file: `dist/${name}.cjs.js`,
+      file: `dist/${name}.cjs.min.js`,
       format: 'cjs',
       name: libName,
       sourcemap: 'inline',
     },
     // cjs and esm version
     {
-      file: `dist/${name}.esm.min.js`,
+      file: `dist/${name}.esm.min.min.js`,
       format: 'es',
     }
   ],
