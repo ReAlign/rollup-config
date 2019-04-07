@@ -2,6 +2,9 @@ import filesize from 'rollup-plugin-filesize';
 import uglify from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
 
+import transBigHumpName from './trans-big-hump-name';
+import getRealName from './get-real-name';
+
 import baseConfig from './rollup.config.base';
 import {
   name,
@@ -10,12 +13,12 @@ import {
   license
 } from '../package.json';
 
-import transBigHumpName from './trans-big-hump-name';
-const libName = transBigHumpName(name);
+const rName = getRealName(name);
+const libName = transBigHumpName(rName);
 
 // banner
 const banner =
-  `${'/*!\n' + ' * '}${name}.js V ${version}\n` +
+  `${'/*!\n' + ' * '}${rName}.js V ${version}\n` +
   ` * (c) 2018-${new Date().getFullYear()} ${author}\n` +
   ` * Released under the ${license} License.\n` +
   ` */`;
@@ -28,18 +31,18 @@ export default [
     output: [
       // umd with compress version
       {
-        file: `dist/${name}.min.js`,
+        file: `dist/${rName}.min.js`,
         format: 'umd',
         name: libName,
       },
       // cjs and esm version
       {
-        file: `dist/${name}.cjs.min.js`,
+        file: `dist/${rName}.cjs.min.js`,
         format: 'cjs',
       },
       // cjs and esm version
       {
-        file: `dist/${name}.esm.min.js`,
+        file: `dist/${rName}.esm.min.js`,
         format: 'es',
       }
     ],

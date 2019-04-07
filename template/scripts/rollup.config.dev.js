@@ -1,29 +1,32 @@
 import baseConfig from './rollup.config.base';
 import serve from 'rollup-plugin-serve';
 
+import transBigHumpName from './trans-big-hump-name';
+import getRealName from './get-real-name';
+
 import { name } from '../package.json';
 
-import transBigHumpName from './trans-big-hump-name';
-const libName = transBigHumpName(name);
+const rName = getRealName(name);
+const libName = transBigHumpName(rName);
 
 export default {
   ...baseConfig,
   output: [
     {
-      file: `dist/${name}.min.js`,
+      file: `dist/${rName}.min.js`,
       format: 'umd',
       name: libName,
       sourcemap: true,
     },
     {
-      file: `dist/${name}.cjs.min.js`,
+      file: `dist/${rName}.cjs.min.js`,
       format: 'cjs',
       name: libName,
       sourcemap: 'inline',
     },
     // cjs and esm version
     {
-      file: `dist/${name}.esm.min.min.js`,
+      file: `dist/${rName}.esm.min.min.js`,
       format: 'es',
     }
   ],
