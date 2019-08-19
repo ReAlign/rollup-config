@@ -1,21 +1,27 @@
 module.exports = {
-    prompts: {
-        lineName: {
-            message: `Name:`,
-            default: ':folderName:'
-        },
-        proDesc: {
-            message: `Description:`,
-            default: 'rollup pro'
-        },
-        hubBase: {
-            message: `github base url:`,
-            default: ''
-        },
-        author: {
-            message: `author name:`,
-            default: ''
-        }
+    prompts() {
+        return [
+            {
+                name: 'lineName',
+                message: `Name:`,
+                default: this.outFolder
+            },
+            {
+                name: 'proDesc',
+                message: `Description:`,
+                default: 'rollup pro'
+            },
+            {
+                name: 'hubBase',
+                message: `github base url:`,
+                default: ''
+            },
+            {
+                name: 'author',
+                message: `author name:`,
+                default: 'ReAlign'
+            }
+        ];
     },
     actions: [
         {
